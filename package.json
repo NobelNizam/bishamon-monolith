@@ -1,0 +1,32 @@
+{
+  "name": "bishamon-monolith",
+  "version": "0.1.0",
+  "private": true,
+  "license": "ISC",
+  "type": "module",
+  "engines": { "node": ">=22.18.0" },
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env scripts/serve.mjs dev",
+    "build": "next build",
+    "start": "node --env-file-if-exists=.env scripts/serve.mjs start",
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "seed": "node --env-file-if-exists=.env --experimental-strip-types scripts/seed.ts",
+    "backup": "node --env-file-if-exists=.env --experimental-strip-types scripts/backup.ts",
+    "setup": "node scripts/setup.mjs"
+  },
+  "dependencies": {
+    "next": "^16.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.0.0"
+  }
+}

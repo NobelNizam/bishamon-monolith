@@ -1,0 +1,17 @@
+services:
+  bishamon:
+    build: .
+    init: true
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      BISHAMON_DB_PATH: /app/data/bishamon.sqlite
+      PORT: "3000"
+    ports:
+      - "${BIND_ADDRESS:-127.0.0.1}:${PORT:-3000}:3000"
+    volumes:
+      - bishamon-data:/app/data
+    security_opt:
+      - no-new-privileges:true
+volumes:
+  bishamon-data:
